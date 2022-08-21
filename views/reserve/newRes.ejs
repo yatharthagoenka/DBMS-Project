@@ -1,0 +1,30 @@
+<div id="reserveform">
+    <h2>Make a Reservation</h2>
+    <form action="/reservations" method="POST">
+        <label for="room_type">Room Type</label>
+        <input type="text" placeholder="AC / NAC" name="room_type"><br>
+
+        <label for="room_no">room_no</label>
+        <input type="text" name="room_no"><br>
+
+        <label for="occupancy">occupancy</label>
+        <input type="text" placeholder="occupancy" name="occupancy"><br>
+        
+        <label for="status">status</label>
+        <input type="text" name="status"><br>
+        
+        <label for="username">Username</label>
+        <input type="text" placeholder="Autofill" name="username" value="<%= username %>" readonly><br>
+        
+        <label for="checkin">CheckIn</label>
+        <input type="text" name="checkin"><br>      
+
+        <label for="checkout">CheckOut</label>
+        <input type="text" name="checkout"><br> 
+
+        <label for="regnum">Reg No</label>
+        <input type="text" name="regnum"><br>   
+        
+        <button type="submit">Book</button>
+    </form>
+</div>

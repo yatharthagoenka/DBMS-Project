@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="head">Authentication Page</h1>
+
+    <div id="logincontainer">
+        <h2>Login</h2>
+        <form action="/login" method="POST">
+            <label for="username">UserName</label>
+            <input type="text" placeholder="Username" name="username"><br>
+            <label for="password">Password</label>
+            <input type="password" name="password">
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <div id="registercontainer">
+        <h2>Register</h2>
+        <form action="/register" method="POST">
+            <label for="username">UserName</label>
+            <input type="text" id="username" name="username">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password">
+            <label for="phone">Mobile No:-</label>
+            <input type="text" name="phone" id="phone">
+            <label for="email">E-mail</label>
+            <input type="text" name="email" id="email">
+            <label for="email">Relation</label>
+            <input type="text" name="relation" placeholder="Guest or Parent">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

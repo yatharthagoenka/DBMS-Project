@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HMS</title>
+</head>
+
+<body>
+    <div class="mainhead">
+            <nav class="header-nav" id="userheader">
+                <a href="/index">Index</a>
+                <a href="/reservations">Reserve</a>
+                <a href="/reservations/bookings">Bookings</a>
+                <a href="/admin" onclick="click()">Admin</a>
+                <a href="/logout">Logout</a>
+            </nav>
+            
+        <nav class="header-nav" id="adminheader">
+            <a href="/adminindex">Admin index</a>
+            <a href="/users">User</a>
+        </nav>
+    </div>
+    <%- body %>
+
+</body>
+
+</html>

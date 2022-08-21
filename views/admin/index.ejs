@@ -1,0 +1,14 @@
+<div>
+    <h2>Admin Index Page</h2>
+    <% reserves.forEach(reserve => { %> 
+        <div style="margin: 30px;background-color: antiquewhite;">
+            <h1><%= reserve.user %></h1>
+            <p><%= reserve.room_type %></p>
+            <p><%= reserve.room_no %></p>
+            <p><%= reserve.occupancy %></p>
+            <p><%= reserve.status %></p>
+            <p><%= reserve.checkin %></p>
+            <p><%= reserve.checkout %></p>
+        </div>
+    <% }) %> 
+</div>
