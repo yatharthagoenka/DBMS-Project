@@ -1,76 +1,37 @@
-const express = require('express'),
-    passport = require('passport'),
-    LocalStrategy = require('passport-local');
+const express = require('express');
+const path = require('path');
+
+
 const router = express.Router();
-var path = require('path');
-const User = require('../models/users');
-const Reservation = require('../models/reservations');
 
-router.get('/', async(req, res) => {
-    // res.sendFile(path.join(__dirname, '../views','auth.html'));
-    res.render('auth')
-})
+const userControler = require('../controllers/user');
 
-router.get("/logout",(req,res)=>{
-    req.logout();
-    res.redirect("/");
-});
+router.get('/',userControler.getHome); //home page 
 
-router.post("/login",passport.authenticate("local",{
-    failureRedirect:"/"
-}), (req, res)=>{
-    if(req.user.guest_type=="admin"){
-        res.redirect('/adminindex')
-    }else{
-        res.redirect('/index')
-    }
-});
+router.route('/login')
+       .get(userControler.getLogin) // get request for login
+       .post(userControler.postLogin)// post request for login
 
-router.post("/register",(req,res)=>{
-    User.register(new User({username: req.body.username,phone:req.body.phone,email: req.body.email,guest_type: req.body.relation}),req.body.password,function(err,user){
-        if(err){
-            console.log(err);
-            res.redirect("/");
-        }
-    passport.authenticate("local")(req,res,function(){
-        res.redirect("/");
-    })    
-    })
-})
+router.route('/createaccount') 
+       .get(userControler.getCreateAccount)    //get request for create account   
+       .post(userControler.postCreateAccount); //post request for create account   
 
-// ADMIN ROUTES
+router.route('/category')
+       .get(userControler.authentication,userControler.getCategory) //get request for Category  
+       // .post(userControler.postCategory) //post request form the category
+router.route('/boooking')
+       .post(userControler.postBooking) //post booking data    
+       
+router.route('/status')
+       .post(userControler.postStatus); 
 
-function adminLogin(req,res,next) {
-    if(req.isAuthenticated()){
-        if(req.user.guest_type=="admin"){
-            return next();
-        }
-    }
-    res.redirect('/')
-}
+router.route('/showStatus')
+       .get(userControler.authentication,userControler.getShowStatus);// get show status
 
-router.get('/adminindex', adminLogin, async(req, res) => {
-    try{
-        const reserves = await Reservation.find()
-        res.render('admin/index',{
-            reserves: reserves
-        })
-    }catch{
-        res.redirect('/')
-    }
-    // res.render('ad/min/index')
-})
+router.post('/deletereq',userControler.deleteBooking,userControler.getShowStatus);       
+       
+router.get('/contact',userControler.getContact);       
 
-router.get('/users', adminLogin, async(req, res) => {
-    try{
-        const users = await User.find()
-        res.render('admin/users',{
-            users: users
-        })
-    }catch{
-        res.redirect('/')
-    }
-})
+router.get('/logout',userControler.logout); //logout       
 
-
-module.exports = router
+module.exports = router;

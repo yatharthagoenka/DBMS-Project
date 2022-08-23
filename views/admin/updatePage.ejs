@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Update</title>
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+      body {
+      margin: 0;
+      background: #e0e5ec;
+      font-family: 'Poppins',sans-serif;
+      font-weight: 100;
+    }
+
+      .nav{
+      font-family: 'Poppins',sans-serif;
+      color: rgb(119, 119, 119);
+      width: 100%;
+      position: absolute;
+      top: 0%;
+      right: 0%;
+    }
+
+    .nav ul li{
+      float: right;
+      list-style-type: none;
+      margin: 20px;
+    }
+    a{
+      margin: 0;
+      font-weight: 300;
+      font-size: 1.1rem;
+      text-decoration: none;
+      color: rgb(17, 17, 17);
+    } 
+
+    .container{
+      position: absolute;
+      margin-top: 150px;
+      margin-left: 30%;
+      box-shadow: 15px 15px 15px rgba(163, 177, 198, 0.6),
+      -9px -9px 16px rgba(255, 255, 255, 0.6);
+      border-radius: 20px;
+      width: 500px;
+      padding: 20px;
+      padding-left: 40px;
+    }
+
+    h3{
+      width: fit-content;
+      display: inline-block;
+      margin-right: 20px;
+    }
+
+    select, input{
+      padding: 0.2cm;
+      border-radius: 10px;
+      box-shadow: 10px 10px 10px rgba(124, 135, 151, 0.6),
+      -9px -9px 16px rgba(255, 255, 255, 0.6);
+      background-color: rgb(154, 176, 195);
+      border: none;
+      float: right;
+      margin-top: 20px;
+      width: 200px;
+    }
+
+
+    </style>
+  </head>
+
+  <body>
+
+    <div class="main">
+      <div class="nav">
+        <h1><a style="float: left; width: fit-content; margin: 30px; font-weight: 300; text-decoration: none; font-size: 30px;" href="/">HMS - IIITDMJ</a></h1>
+        <ul>
+          <li><a href="/admin/logout">Logout</a></li>
+          <li><a href="/admin/Search">UPDATE</a></li>
+          <li><a href="/admin/addRoom">ADD DATA</a></li>
+          <li><a href="/admin/">ADMIN DASHBOARD</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container">
+      <center><h1>UPDATE ROOM INFO</h1></center>
+      <form action="/admin/updateData" method="POST">
+
+        <h3>Category</h3>
+        <input type="text" class="form-control" name="cat" value="<%=data.name%>" readonly>
+        <br>
+        <h3>Room Type</h3>
+        <input type="text" class="form-control" name="type" value="<%=data.type%>">
+        <br>
+        <h3>Per Night Cost</h3>
+        <input type="number" class="form-control" name="cost" value="<%=data.cost%>">
+        <br>
+        <h3>Room Availavle</h3>
+        <input type="number" class="form-control" name="avlvl" value="<%=data.available%>">
+        <br>
+        <h3>Add Some Description</h3>
+        <input type="text" class="form-control" name="des"  value="<%=data.dec%>">
+        <br>
+        <input type="submit" style="position: relative; right: 62%;" value="Update">
+      </form>
+    </div>
+    
+  </body>
+
+</html>

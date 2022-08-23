@@ -1,0 +1,192 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Visitor Hostel</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
+    </style>
+
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/categorycard.css">
+    <link rel="stylesheet" href="css/status.css">
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+</head>
+
+<body>
+    <div class="main" style="background-image: url('img/lhtc.jpg');">
+        <div class="nav">
+            <h1><a style="float: left; width: fit-content; margin: 30px; font-weight: 300; text-decoration: none;" href="/">HMS - IIITDMJ</a></h1>
+            <div class="links">
+                <ul>
+                    <% if(user.length){ %>
+                    <li style="color: black; font-size: 1cm; margin-top: 0;"><%=username%></li>
+                    <li><a href="/logout">Logout</a></li>   
+                    <li><a href="/showStatus">My Bookings</a></li>
+                    <li><a href="/category">Rooms</a></li>
+                    <%  } else { %>
+                    <li><a href="/createaccount">Signup</a></li>
+                    <li><a href="/login">Login</a></li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+
+        <div class="title">
+            <h1>Visitor Hostels</h1>
+            <h3><sup>PDPM</sup> <br> Indian Institute of Information Technology, Design and Manufacturing, Jabalpur</h3>
+        </div>
+
+    </div>
+
+    <div class="fasc">
+        <div data-aos="zoom-in-up" data-aos-duration="13000" data-aos-offset="200">
+        <div id="faschead" style="padding-left: 7%;padding-right: 9%;padding-top: 7%;font-family: 'Playfair Display', serif;">
+            <div>
+                <div id="faschead"><i class="fas fa-globe-americas" style="font-size: 60px;opacity: 0.7;"></i></div>
+                <p style="font-size: 1.7rem;margin-top: 15px;">Global Access</p>
+            </div>
+            <div>
+                <div id="faschead"><i class="fas fa-utensils" style="font-size: 60px;opacity: 0.7;"></i></div>
+                <p style="font-size: 1.7rem;margin-top: 15px;">Dining</p>
+            </div>
+            <div>
+                <div id="faschead"><i class="fas fa-route" style="font-size: 60px;opacity: 0.7;"></i></div>
+                <p style="font-size: 1.7rem;margin-top: 15px;">Easy Travel</p>
+            </div>
+            <div>
+                <div id="faschead"><i class="fas fa-university" style="font-size: 60px;opacity: 0.7;"></i></div>
+                <p style="font-size: 1.7rem;margin-top: 15px;">On-Campus Experience</p>
+            </div>
+        </div>
+        
+        <div id="faschead" style="margin-top: 5%;">
+            <div>
+                <p>____________</p>
+                <div id="faschead" style="margin-top: 12px;"><h4>Facilities</h4></div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <div>
+    <div class="catcard_container" data-aos="zoom-in-up" data-aos-duration="4000" data-aos-offset="200">
+        <div id="faschead">
+            <div>
+                <h1 style="font-family: 'Poppins',sans-serif;">Rooms</h1>
+                <div id="faschead" style="margin-top: -5px;"><p>____________</p></div>
+            </div>
+        </div>
+        <br><br><br>
+
+        <ul class="catcards">   
+            <li>
+                <a class="catcard">
+                    <img src="/img/rooms/room1.jpg" class="catcard__image" alt="" />
+                    <div class="catcard__overlay">
+                        <div class="catcard__header">
+                            <svg class="catcard__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
+                            <div class="catcard__header-text">
+                                <h3 class="catcard__title">Event Guest</h3>            
+                                <span class="catcard__status">Double Bed | AC</span>
+                            </div>
+                        </div>
+                        <p class="catcard__description">No Charge</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a class="catcard">
+                    <img src="/img/rooms/room2.jpg" class="catcard__image" alt="" />
+                    <div class="catcard__overlay">
+                        <div class="catcard__header">
+                            <svg class="catcard__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
+                            <div class="catcard__header-text">
+                                <h3 class="catcard__title">Visitor</h3>            
+                                <span class="catcard__status">Double Bed | AC</span>
+                            </div>
+                        </div>
+                        <p class="catcard__description">Starting 900 /night</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a class="catcard">
+                    <img src="/img/rooms/room3.jpg" class="catcard__image" alt="" />
+                    <div class="catcard__overlay">
+                        <div class="catcard__header">
+                            <svg class="catcard__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
+                            <div class="catcard__header-text">
+                                <h3 class="catcard__title">Faculty</h3>            
+                                <span class="catcard__status">Double Bed | AC</span>
+                            </div>
+                        </div>
+                        <p class="catcard__description">Starting 150 /night</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a class="catcard">
+                    <img src="/img/rooms/room4.jpg" class="catcard__image" alt="" />
+                    <div class="catcard__overlay">
+                        <div class="catcard__header">
+                            <svg class="catcard__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
+                            <div class="catcard__header-text">
+                                <h3 class="catcard__title">Parent/Gaurdian</h3>            
+                                <span class="catcard__status">Double Bed | AC</span>
+                            </div>
+                        </div>
+                        <p class="catcard__description">Starting 400 /night</p>
+                    </div>
+                </a>
+            </li>
+            
+        </ul>
+        <br><br><br>    
+
+        <div id="faschead"><a href="/category" class="button glow-button">View More</a></div>   
+
+    </div>
+</div>
+
+    <div class="team">
+        <div data-aos="zoom-in-up" data-aos-duration="13000" data-aos-offset="200">
+        <div id="faschead" style="padding-top: 5%;">
+            <div>
+                <h4 style="font-family: 'Poppins',sans-serif;">Meet the Team</h4>
+                <div id="faschead" style="margin-top: -25px;"><p>____________</p></div>
+            </div>
+        </div>
+
+        <div id="faschead" style="padding-left: 7%;padding-right: 9%;padding-top: 7%;font-family: 'Roboto Condensed', sans-serif, serif;">
+            <div style="display:flex; flex-direction: column; text-align: center;">
+                <img class="img" src="/img/nandani.jpg">
+                <p> Nandani Patel </p>
+            </div>
+            
+            <div style="display:flex; flex-direction: column; text-align: center;">
+                <img src="/img/yathartha.jpg" class="img"> 
+                <p>Yathartha Goenka</p>
+            </div>
+
+            <div style="display:flex; flex-direction: column; text-align: center;">
+                <img src="/img/aditi.jpg" class="img"> 
+                <p>Aditi Gohil</p>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+</body>
+
+</html>

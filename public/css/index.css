@@ -1,0 +1,35 @@
+.navcontainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 4%;
+    font-family: 'Poppins',sans-serif;
+}
+
+.links ul{
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+}
+
+.links li{
+    margin-right: 30px;
+    font-weight: 600;
+}
+/* 
+#indexbg{
+    position: relative;
+    z-index: -100;
+    width: 98.5vw;
+    height: 120vh;
+    margin-top: -15%;
+} */
+.indexmain{
+    background-image: url('img/lhtc.jpg');
+}
+
+
+.indexfac{
+    position: relative;
+}

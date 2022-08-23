@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Booking status</title>
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/status.css">
+</head>
+<body>
+    <div class="nav">
+        <h1><a style="float: left; width: fit-content; margin: 30px; font-weight: 300; text-decoration: none;" href="/">HMS - IIITDMJ</a></h1>
+        <div class="links" style="padding-top: 20px;">
+            <ul>
+                <% if(user.length){ %>
+                <li><a href="/logout">Logout</a></li>   
+                <li><a href="/showStatus">My Bookings</a></li>
+                <li><a href="/category">Rooms</a></li>
+                <%  } else { %>
+                <li><a href="/createaccount">Signup</a></li>
+                <li><a href="/login">Login</a></li>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="container" style="padding-top: 60px;">
+        <h2 style="font-size: 2rem; font-family: 'Poppins',sans-serif; font-weight: 300;">Your booking status</h2>
+        <br> <br>
+                
+                <% if(err.length == 0 ){ %>
+                    <div>
+                    <table class="table">
+                        <tr border="1">
+                            <th>Name</th>
+                            <th>Date</th>
+                            <th>Category</th>
+                            <th>Type</th>
+                            <th>Meal</th>
+                            <th>Status</th>
+                        </tr>
+
+                        <% for(i in data){  %>
+                        <tbody>
+                            <tr>
+                                <td><%=data[i].email%></td>
+                                <td><%=data[i].date%></td>
+                                <td><%=data[i].category%> </td>
+                                <td><%=data[i].type%></td>
+                                <td><%=data[i].mealplan%></td>
+                                
+                                <% if(data[i].status == 1){ %>
+
+                                    <td class="text-center"><input type="submit" value="Approved" class="del" style="background-color: #17b978;">
+                                    <form action="/deletereq"  method="POST"> 
+                                        <input type="text" name="mail" value="<%=data[i].email%>" hidden>
+                                        <input type="text" name="want" value="<%=data[i].occupancy%>" hidden>
+                                        <input type="text" name="cat" value="<%=data[i].category%>" hidden>
+                                        <input type="text" name="type" value="<%=data[i].type%>" hidden>
+                                        <input type="submit" value="Delete" class="del">
+                                    </td>
+                                    </form>
+                                <% }  else if(data[i].status == 0){ %>
+                                    <td class="text-center"><input type="submit" value="Pending" class="del" style="background-color: #f0da16;">
+                                    <form action="/deletereq"  method="POST"> 
+                                        <input type="text" name="mail" value="<%=data[i].email%>" hidden>
+                                        <input type="text" name="want" value="<%=data[i].occupancy%>" hidden>
+                                        <input type="text" name="cat" value="<%=data[i].category%>" hidden>
+                                        <input type="text" name="type" value="<%=data[i].type%>" hidden>
+                                        <input type="submit" value="Delete" style="background-color: #ff304f;" class="del">
+                                    </td>
+                                    </form>
+                                <%  } %>
+                            </tr>
+                        </tbody>
+                    <%   } %>
+                </table>
+                </div>
+        <%   } %>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Hotel</title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/status.css">
+    <link rel="stylesheet" href="css/categorycard.css">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+</head>
+
+<body>
+
+    <div class="nav">
+        <h1><a style="float: left; width: fit-content; margin: 30px; font-weight: 300; text-decoration: none; color: black;" href="/">HMS - IIITDMJ</a></h1>
+        <div class="links" style="padding-top: 20px;">
+            <ul>
+                <% if(user.length){ %>
+                <li><a href="/logout">Logout</a></li>   
+                <li><a href="/showStatus">My Bookings</a></li>
+                <li><a href="/category">Rooms</a></li>
+                <%  } else { %>
+                <li><a href="/createaccount">Signup</a></li>
+                <li><a href="/login">Login</a></li>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="catcard_container">
+
+        <% if(rooms.length) { %>
+        <ul class="catcards">   
+        <% for(i=0;i<rooms.length;i++){  %>
+            <li><form action="/boooking" method="POST">
+                <input type="text" name="name" value="<%=rooms[i].name%>" hidden>
+                <input type="text" name="type" value="<%=rooms[i].type%>" hidden>
+                <input type="text" name="cost" value="<%=rooms[i].cost%>" hidden>
+                <input type="text" name="img" value="<%=rooms[i].img%>" hidden>
+                <a href="" class="catcard" onclick="this.closest('form').submit();return false;">
+                    <img src="<%=rooms[i].img%>" class="catcard__image" alt="" />
+                    <div class="catcard__overlay">
+                        <div class="catcard__header">
+                            <svg class="catcard__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
+                            <div class="catcard__header-text">
+                                <h3 class="catcard__title"><%=rooms[i].name%></h3>            
+                                <span class="catcard__status"><%=rooms[i].type%> | <%=rooms[i].dec%></span>
+                            </div>
+                        </div>
+                        <p class="catcard__description">Rs <%=rooms[i].cost%> / per night</p>
+                    </div>
+                </a>
+            </form></li>
+        <% } %>
+        </ul>
+        <% } else{  %>
+            <br>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <h2 style="color: #ff304f;" class="text-center mt-5 mb-5">No Room Available Right Now</h2>
+            </div>
+            <br>
+        <%  }  %>
+
+    </div>
+  
+    
+</body>
+
+</html>

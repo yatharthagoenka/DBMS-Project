@@ -1,0 +1,55 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Hotel</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/status.css">
+    <link rel="stylesheet" href="css/bookroom.css">
+</head>
+
+<body>
+
+    <div class="nav">
+        <h1><a style="float: left; width: fit-content; margin: 30px; font-weight: 300; text-decoration: none; color: black;" href="/">HMS - IIITDMJ</a></h1>
+        <div class="links" style="padding-top: 20px;">
+            <ul>
+                <% if(user.length){ %>
+                <li><a href="/logout">Logout</a></li>   
+                <li><a href="/showStatus">My Bookings</a></li>
+                <li><a href="/category">Rooms</a></li>
+                <%  } else { %>
+                <li><a href="/createaccount">Signup</a></li>
+                <li><a href="/login">Login</a></li>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+
+    <div class="bookcontainer">
+        <div class="bookcontainer-close"><a href="/category" style="text-decoration: none;">&times;</a></div>
+        <img src="<%=img%>" alt="image">
+        <div class="bookcontainer-text">
+            <form action="/status" method="post">
+                <input type="hidden" name="name" value="<%=name%>">
+                <input type="hidden" name="type" value="<%=type%>">
+                <input type="hidden" name="cost" value="<%=cost%>">
+
+                <h2><%=name%></h2>
+                <p><%=type%></p>
+                <p><b><%=cost%></b> / night</p>
+                <input type="date" name="date">
+                <input type="number" placeholder="Occupancy" name="occupancy">
+                <input type="text" placeholder="Meal Plan : Full / Partial / None" name="meal">
+                <button type="submit" value="Confirm Booking">Confirm</button>
+            </form>
+        </div>
+      </div>
+
+
+    </body>
+</html>

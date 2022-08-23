@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Update</title>
+    
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+  html,
+  body{
+    height: 100%;
+  }
+
+  body {
+    margin: 0;
+    background: #e0e5ec;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 300;
+  }
+
+  .container {
+    position: absolute;
+    top: 15%;
+    left: 65px;
+  }
+
+  table.table{
+    width: 1300px;
+    border-spacing: 0;
+    color: #212121;
+    text-align: center;
+    overflow: hidden;
+    box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
+    -9px -9px 16px rgba(255, 255, 255, 0.6);
+  }
+  table.table thead{
+    box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6);
+  }
+  table.table th{
+    font-family: 'Poppins',sans-serif;
+    padding: 15px;
+  }
+
+  table.table>tbody>tr>td {
+    padding: 20px;
+    font-size: 14px;
+    position: relative;
+  }
+
+  table.table>tbody>tr>td>a {
+      color: rgb(179, 47, 47);
+      text-decoration: none;
+      font-weight: 600;
+  }
+
+
+  table.table>tbody>tr:hover {
+    padding: 20px;
+    box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
+    -9px -9px 16px rgba(255, 255, 255, 0.6);
+  }
+
+  table.table tr td:first-child::before {
+    content: "";
+    position: absolute;
+    padding: 7px;
+    top: 0;
+    left: -5000px;
+    width: 10000px;
+    height: 100%;
+    z-index: -10;
+  }
+
+  table.table td:hover::after {
+    content: "";
+    position: absolute;
+    box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
+    -9px -9px 16px rgba(255, 255, 255, 0.6);
+    left: 0;
+    top: -5000px;
+    height: 10000px;
+    width: 100%;
+    z-index: -1;
+  }
+
+  .nav{
+        font-family: 'Poppins',sans-serif;
+        color: rgb(119, 119, 119);
+        width: 100%;
+        position: absolute;
+        top: 0%;
+        right: 0%;
+      }
+
+      .nav ul li{
+        float: right;
+        list-style-type: none;
+        margin: 20px;
+      }
+      a{
+        margin: 0;
+        font-weight: 300;
+        font-size: 1.1rem;
+        text-decoration: none;
+        color: rgb(17, 17, 17);
+      }
+      .del{
+        padding: 6px;
+        border-radius: 10px;
+        background-color: #b1c8d1;
+      
+        width: 75px;
+    }
+
+    </style>
+</head>
+
+  <body>
+
+    <div class="main">
+      <div class="nav">
+        <h1><a style="float: left; width: fit-content; margin: 30px; font-weight: 300; text-decoration: none; font-size: 30px;" href="/">HMS - IIITDMJ</a></h1>
+        <ul>
+          <li><a href="/admin/logout">Logout</a></li>
+          <li><a href="/admin/Search">UPDATE</a></li>
+          <li><a href="/admin/addRoom">ADD DATA</a></li>
+          <li><a href="/admin">ADMIN DASHBOARD</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container">
+      <h2 style="font-size: 2rem; font-family: 'Poppins',sans-serif; font-weight: 300;">Update existing room data</h2>
+      <table class="table" id="dataTable" width="100%" cellspacing="0">
+        <% if(data.length) {  %>
+            <thead>
+              <tr>
+                <th>No.</th>
+                <th>Category</th>
+                <th>Room Type</th>
+                <th>Cost</th>
+                <th>Room Available</th>
+                <th>Update</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% for (i in data) { %>
+                <tr>
+                  <td><%=i%></td>
+                  <td><%=data[i].name%></td>
+                  <td><%=data[i].type%></td>
+                  <td><%=data[i].cost%></td>
+                  <td><%=data[i].available%></td>
+                  <td>
+                    <form action="/admin/update" method="POST">
+                      <input type="hidden" name="cat" value="<%=data[i].name%>">
+                      <input type="hidden" name="type" value="<%=data[i].type%>">
+                      <input type="hidden" name="cost" value="<%=data[i].cost%>">
+                      <input type="hidden" name="available" value="<%=data[i].available%>">
+                      <input type="submit" class="del" name="click" value="Update">
+                    </form>
+                  </td>
+                </tr>
+          <% } %>
+            </tbody>
+      </table>
+        <%   } else { %>
+      <h3 style="color: #ff304f;" class="text-center">No Data Found</h3><br>
+        <% } %>
+      </div>
+</body>
+
+</html>
